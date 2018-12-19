@@ -1,3 +1,11 @@
+.attack{
+    margin-left: auto;
+}
+
+.defend{
+    margin-left: auto;
+}
+
 .container-fluid{
     margin-right: auto;
     margin-left: auto;
@@ -7,7 +15,8 @@
 
 #charCard{
     text-align: center;
-    width: 240px;
+    height: 300px;
+    float: left;
 }
 
 .image{

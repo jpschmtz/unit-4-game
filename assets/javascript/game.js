@@ -54,6 +54,11 @@ var loss = 0;
 function reset(){
     targetNum = Math.floor(Math.random()*100+50);
     currentVal = 0;
+    $(characters).each(function(i, e){
+        e.attack= Math.floor(Math.random()*10)+5;
+        console.log(e.attack)
+        $("#e.name").html( " " + e.attack + " ");
+    })
 }
 
 
@@ -64,13 +69,13 @@ $(characters).each(function(i, e){
     <div class='card-body'>\
     <img src=" + e.image + " class = image>\
     </div>\
-    <div class='card-footer' > " + e.attack + "</div>\
+    <div class='card-footer' id='" + e.name + "' > " + e.attack + "</div>\
     </div>")
 })
-$(".scoreboard").html("<div class='card' id='charCard' value = " + wins + " ><h4> Wins: " + wins + " </h4></div>")
-$(".lossboard").html("<div class='card' id='charCard' value = " + loss + " ><h4> Loss: " + loss + " </h4></div>")
-$(".attack").html("<div class='card' id='charCard' value = " + targetNum + " ><h2> Target: " + targetNum + " </h2></div>")
-$(".defend").html("<div class='card' id='charCard' value = " + currentVal + " ><h2> Current Score: " + currentVal + " </h2></div>")
+$(".scoreboard").html("<div class='row' id='wins' value = " + wins + " ><h4> Wins: " + wins + " </h4></div>")
+$(".lossboard").html("<div class='row' id='loss' value = " + loss + " ><h4> Loss: " + loss + " </h4></div>")
+$(".attack").html("<div class='row' id='targetNum' value = " + targetNum + " ><h2> Target: " + targetNum + " </h2></div>")
+$(".defend").html("<div class='row' id='currentVal' value = " + currentVal + " ><h2> Current Score: " + currentVal + " </h2></div>")
 
 $(".card").click(function(){
     console.log($(this).attr("value"));
