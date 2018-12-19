@@ -16,50 +16,85 @@
 
 var characters = [
     {
-        name : "kirk",
+        name : "Capt. James T. Kirk",
         image : "assets/images/kirk.jpg",
-        attack : "21",
-        health: "100"
+        attack : Math.floor(Math.random()*10)+5,
+        health: 100
     },
     {
-        name : "spock",
+        name : "Spock The Vulcan",
         image : "assets/images/spock.jpg",
-        attack : "50",
-        health: "100"
+        attack : Math.floor(Math.random()*10)+5,
+        health: 100
     },
     
     {
-        name : "klingon",
+        name : "Klingon",
         image : "assets/images/klingon.jpg",
-        attack : "99",
-        health: "100"
+        attack : Math.floor(Math.random()*10)+5,
+        health: 100
+    },
+    
+    {
+        name : "Khan Noonien Singh",
+        image : "assets/images/khan.jpg",
+        attack : Math.floor(Math.random()*10)+5,
+        health: 100
     },
 ]
 
+var selectedChar;
+var enemyChar;
+var enemy = [];
+var targetNum = Math.floor(Math.random()*100+50);
+var currentVal = 0;
+var wins = 0;
+var loss = 0;
 
-// $(characters).each(function(i, e){
-//     $(".container").append("<li><img src='" + e.image + "' data-attack='" + e.attack + "' data-health='" + e.health + "'></li>")
-// })
+function reset(){
+    targetNum = Math.floor(Math.random()*100+50);
+    currentVal = 0;
+}
+
+
+
 $(characters).each(function(i, e){
-    $(".container").append("<div class= character style= max-width: 100%;>\
-    <div class=card-header bg-transparent border-success>" + e.name + "</div>\
-    <div class='card-body text-primary'>\
+    $(".container-fluid").append("<div class='card' id='charCard' value = " + e.attack + " >\
+    <div class='card-header'>" + e.name + "</div>\
+    <div class='card-body'>\
     <img src=" + e.image + " class = image>\
     </div>\
-    <div class='card-footer bg-transparent border-success'>" + e.attack + "<br>" + e.health + "</div>\
+    <div class='card-footer' > " + e.attack + "</div>\
     </div>")
 })
+$(".scoreboard").html("<div class='card' id='charCard' value = " + wins + " ><h4> Wins: " + wins + " </h4></div>")
+$(".lossboard").html("<div class='card' id='charCard' value = " + loss + " ><h4> Loss: " + loss + " </h4></div>")
+$(".attack").html("<div class='card' id='charCard' value = " + targetNum + " ><h2> Target: " + targetNum + " </h2></div>")
 
-/* <div class="character" style="max-width: 18rem;">
-<div class="card-header bg-transparent border-success">Name</div>
-<div class="card-body text-primary">
-    <img src=".jpg">
-</div>
-<div class="card-footer bg-transparent border-success">HP</div>
-</div> */
 
-var $characters = $(".characters li img");
+$(".card").click(function(){
+    console.log($(this).attr("value"));
+    console.log(targetNum);
 
-$characters.on("click", function(){
-    console.log($(this).attr("data-attack"));
-})
+    // $(this).hide();
+    currentVal +=  parseInt($(this).attr("value"))
+    console.log(currentVal);
+    if (currentVal == targetNum){
+        // Winner
+        alert("You Win!")
+        wins ++
+        reset()
+        $(".scoreboard").html("<div class='card' id='charCard' value = " + wins + " ><h4> Wins: " + wins + " </h4></div>")
+    }
+    if (currentVal > targetNum){
+        // Loser
+        alert("You Lose!")
+        loss ++
+        reset()
+        $(".lossboard").html("<div class='card' id='charCard' value = " + loss + " ><h4> Loss: " + loss + " </h4></div>")
+    }
+});
+
+
+
+

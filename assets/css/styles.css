@@ -1,6 +1,16 @@
-.container{
-
+.container-fluid{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    float: center;
 }
+
+#charCard{
+    text-align: center;
+    width: 240px;
+}
+
 .image{
  width: 200px;
 }
+
