@@ -70,7 +70,7 @@ $(characters).each(function(i, e){
 $(".scoreboard").html("<div class='card' id='charCard' value = " + wins + " ><h4> Wins: " + wins + " </h4></div>")
 $(".lossboard").html("<div class='card' id='charCard' value = " + loss + " ><h4> Loss: " + loss + " </h4></div>")
 $(".attack").html("<div class='card' id='charCard' value = " + targetNum + " ><h2> Target: " + targetNum + " </h2></div>")
-
+$(".defend").html("<div class='card' id='charCard' value = " + currentVal + " ><h2> Current Score: " + currentVal + " </h2></div>")
 
 $(".card").click(function(){
     console.log($(this).attr("value"));
@@ -79,6 +79,8 @@ $(".card").click(function(){
     // $(this).hide();
     currentVal +=  parseInt($(this).attr("value"))
     console.log(currentVal);
+    $(".defend").html("<div class='card' id='charCard' value = " + currentVal + " ><h2> Current Score: " + currentVal + " </h2></div>")
+
     if (currentVal == targetNum){
         // Winner
         alert("You Win!")
