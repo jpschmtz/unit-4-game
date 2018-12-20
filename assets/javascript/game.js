@@ -29,7 +29,7 @@ var characters = [
     },
     
     {
-        name : "Klingon",
+        name : "TOS Klingon",
         image : "assets/images/klingon.jpg",
         attack : Math.floor(Math.random()*10)+5,
         health: 100
@@ -60,7 +60,8 @@ function reset(){
     $(characters).each(function(i, e){
         e.attack= Math.floor(Math.random()*10)+5;
         console.log(e.attack)
-        // $(".charCard"+e+"").attr('value', " " + e.attack + " ");
+        $("#charCard").val(e.attack);
+        $(".card-footer").attr( " " + e.attack + " " );
     })
 }
 
@@ -72,7 +73,7 @@ $(characters).each(function(i, e){
     <div class='card-body'>\
     <img src=" + e.image + " class = image>\
     </div>\
-    <div class='card-footer' value='" + e.attack + "' > " + e.attack + "</div>\
+    <div class='card-footer' > " + e.attack + "</div>\
     </div>")
 })
 $(".scoreboard").html("<div class='row' id='wins' value = " + wins + " ><h2> Wins: " + wins + " </h2></div>")
