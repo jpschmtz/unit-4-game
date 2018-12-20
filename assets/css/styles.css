@@ -1,9 +1,19 @@
+body{
+    background-image: url("../images/background.jpg");
+    background-color: #cccccc;
+    color: whitesmoke;
+}
+
+.jumbotron{
+    color: black;
+}
+
 .attack{
-    margin-left: auto;
+    margin-left: 50px;
 }
 
 .defend{
-    margin-left: auto;
+    margin-left: 50px;
 }
 
 .container-fluid{
@@ -14,8 +24,10 @@
 }
 
 #charCard{
+    color: black;
     text-align: center;
     height: 300px;
+    width: 300px;
     float: left;
 }
 
@@ -23,3 +35,11 @@
  width: 200px;
 }
 
+.scoreboard{
+    clear: both;
+    margin-left: 50px;
+}
+.lossboard{
+    clear: both;
+    margin-left: 50px;
+}
